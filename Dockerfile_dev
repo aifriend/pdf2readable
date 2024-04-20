@@ -1,0 +1,62 @@
+FROM jbarlow83/ocrmypdf:v14.0.0
+
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+ENV FLASK_APP=api.py
+ENV FLASK_DEBUG=0
+ENV GS_TAG=gs9550
+ENV GS_VERSION=9.55.0
+ENV PATH=/usr/local/bin:$PATH
+ENV TIKA_CLIENT_ONLY=True
+ENV TIKA_SERVER_ENDPOINT=http://127.0.0.1:9998
+
+RUN export DEBIAN_FRONTEND=noninteractive && \
+    apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install --no-install-recommends -y \
+    build-essential autoconf automake libtool \
+    libleptonica-dev \
+    zlib1g-dev \
+    wget \
+    ghostscript \
+    apt-utils \
+    libqpdf-dev \
+    zlib1g \
+    liblept5 \
+    make \
+    gpg \
+    gpg-agent \
+    gnupg2 \
+    ca-certificates \
+    dirmngr \
+    libsm6 \
+    libxext6 \
+    libxrender-dev \
+    pngquant \
+    unpaper   \
+    curl \
+    git \
+    python3-distutils  \
+    python3-apt \
+    qpdf \
+    img2pdf \
+    poppler-utils  \
+    python-six \
+    nano
+
+RUN apt-get update && apt-get install -y software-properties-common && add-apt-repository ppa:alex-p/tesseract-ocr5 -y  && \
+    apt-get install -y \
+    tesseract-ocr \
+    tesseract-ocr-spa \
+    libtesseract-dev 
+    
+RUN curl https://bootstrap.pypa.io/get-pip.py | python3
+
+RUN \
+  mkdir jbig2 \
+  && curl -L https://github.com/agl/jbig2enc/archive/ea6a40a.tar.gz | \
+  tar xz -C jbig2 --strip-components=1 \
+  && cd jbig2 \
+  && ./autogen.sh && ./configure && make && make install \
+  && cd .. \
+  && rm -rf jbig2

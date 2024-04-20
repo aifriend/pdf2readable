@@ -1,0 +1,324 @@
+{
+	"info": {
+		"_postman_id": "c0c9fa18-657a-479b-bb21-f3f465518e65",
+		"name": "Gbc.OCR.Pdf2Readable",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4564855"
+	},
+	"item": [
+		{
+			"name": "Pdf2Readable::LOC::IRPH::S3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"source\": \"S3\",\n    \"persistence\": \"S3\",\n    \"bucket\": \"gbc.product.irph\",\n    \"key\": \"0f73cd8c-8c8c-47f5-a068-8f66b3f6444f.pdf\",\n    \"lang\": \"spa\",\n    \"forcescan\": 1,\n    \"forcenonative\": 0,\n    \"disableocr\": 0,\n    \"max_pages\": 99,\n    \"txtLenForSkip\": 500,\n    \"kb_limit_size\": 0,\n    \"queue\": \"\"\n}\n"
+				},
+				"url": {
+					"raw": "http://192.168.1.143:7003/api/gbc/ocr/image/pdf/readable",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"143"
+					],
+					"port": "7003",
+					"path": [
+						"api",
+						"gbc",
+						"ocr",
+						"image",
+						"pdf",
+						"readable"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pdf2Readable::LOC::IRPH::S3 DOCKER",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"source\": \"S3\",\n    \"persistence\": \"S3\",\n    \"bucket\": \"gbc.product.irph\",\n    \"key\": \"0f73cd8c-8c8c-47f5-a068-8f66b3f6444f.pdf\",\n    \"lang\": \"spa\",\n    \"forcescan\": 1,\n    \"forcenonative\": 0,\n    \"disableocr\": 0,\n    \"max_pages\": 99,\n    \"txtLenForSkip\": 500,\n    \"kb_limit_size\": 0,\n    \"queue\": \"\"\n}\n"
+				},
+				"url": {
+					"raw": "http://192.168.1.117:7003/api/gbc/ocr/image/pdf/readable",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7003",
+					"path": [
+						"api",
+						"gbc",
+						"ocr",
+						"image",
+						"pdf",
+						"readable"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pdf2Readable::PRE::IRPH::S3",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJGZF9Bb0dhYmRZQlllcmNDSWs2VkZsQ21xTWYzenpuYy05VXJWdDBiOEl3In0.eyJqdGkiOiJiNjMwMDViZS1iYjI2LTRhODctODQ1Mi0yODgzNjc3NDRlMjkiLCJleHAiOjE2MDYyMDY4MzYsIm5iZiI6MCwiaWF0IjoxNjA2MjA2NTM2LCJpc3MiOiJodHRwczovL3Nzby5ncnVwb2JjLmRldi9hdXRoL3JlYWxtcy9yb3NldHRhLXByZSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJmNDljMmUyNy05YzU2LTQ1MTctYWE5NS01M2Y2NmNkMzUwNDIiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJwb3N0bWFuIiwiYXV0aF90aW1lIjowLCJzZXNzaW9uX3N0YXRlIjoiYjMzYjgyNWItMTZlMS00Nzg1LTg4MmYtODQ5NjAyZWE0M2U2IiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJuYW1lIjoiw4FsdmFybyBMw7NwZXoiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhbG9wZXoiLCJnaXZlbl9uYW1lIjoiw4FsdmFybyIsImZhbWlseV9uYW1lIjoiTMOzcGV6IiwiZW1haWwiOiJhbHZhcm8ubG9wZXpAc2FtZWxhbi5jb20ifQ.ZyvJQ9-2MkTsB9iabfiW5VwZqWjpPAcBMb9bCy2yve-PQb6MhojyMfMMf0LM3cGjM0HslMcUqlmFvKNK0Q6cGFvR_eqvt3hpY44sCEBDczOmgYn80VkVWxYGm9sciLNeMNeDcW2D5iNcuCL8KhnBg8gFwIgBLkDRbZ82xnDfuK5FdZX3HbkzDZw-XJO9f81AulIpngu8epdNMv2_krELdcRc6Kw-CiJR9xz_6lmhqJGq3TzrOrXtfKPmgO35Aacm3B0LZUmNrIAJBn-6RtDkWUjAdJEIqNcnEPtfWB8ehI3iOz4_moZp-n8REMxwwsuS6n9L0gvhkFi4c4E3qMII6Q",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"source\": \"S3\", \r\n    \"bucket\": \"gbc.rosetta.product.irph.pre\", \r\n    \"key\": \"poc/180583822_2.pdf\",  \r\n    \"persistence\": \"S3\", \r\n    \"lang\": \"spa\", \r\n    \"forcescan\": \"0\", \r\n    \"disableocr\": \"1\", \r\n    \"txtLenForSkip\": \"500\"\r\n}"
+				},
+				"url": {
+					"raw": "https://api.r.pre.grupobc.dev/gbc/ocr/image/pdf2readable/api/gbc/ocr/image/pdf/readable",
+					"protocol": "https",
+					"host": [
+						"api",
+						"r",
+						"pre",
+						"grupobc",
+						"dev"
+					],
+					"path": [
+						"gbc",
+						"ocr",
+						"image",
+						"pdf2readable",
+						"api",
+						"gbc",
+						"ocr",
+						"image",
+						"pdf",
+						"readable"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pdf2Readable::DEV::IRPH::S3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"source\": \"S3\", \n    \"key\": \"test/202199335_63028134A.pdf\",  \n    \"persistence\": \"S3\",  \n    \"lang\": \"spa\", \n    \"forcescan\": \"0\", \n    \"disableocr\": \"1\", \n    \"bucket\": \"gbc.rosetta.product.irph\", \n    \"txtLenForSkip\": \"500\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.r.dev.grupobc.dev/gbc/ocr/image/pdf2readable/api/gbc/ocr/image/pdf/readable",
+					"protocol": "https",
+					"host": [
+						"api",
+						"r",
+						"dev",
+						"grupobc",
+						"dev"
+					],
+					"path": [
+						"gbc",
+						"ocr",
+						"image",
+						"pdf2readable",
+						"api",
+						"gbc",
+						"ocr",
+						"image",
+						"pdf",
+						"readable"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pdf2Readable::DEV::IRPH::S3 WORKING",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"source\": \"S3\",\n    \"persistence\": \"S3\",\n    \"bucket\": \"gbc.product.simplenote.document.processor\",\n    \"key\": \"694107be-742f-475a-87fd-b4b85976f866.pdf\",\n    \"forcescan\": \"1\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.r.dev.grupobc.dev/gbc/ocr/image/pdf2readable/api/gbc/ocr/image/pdf/readable",
+					"protocol": "https",
+					"host": [
+						"api",
+						"r",
+						"dev",
+						"grupobc",
+						"dev"
+					],
+					"path": [
+						"gbc",
+						"ocr",
+						"image",
+						"pdf2readable",
+						"api",
+						"gbc",
+						"ocr",
+						"image",
+						"pdf",
+						"readable"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pdf2Readable::DEV::NS::S3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"source\": \"S3\",\n    \"persistence\": \"S3\",\n    \"bucket\": \"gbc.product.simplenote.document.processor\",\n    \"key\": \"ca7066c0-479d-4836-beb4-24bea0712fa4.pdf\",\n    \"ocrmode\": \"pdf2readable\",\n    \"forcescan\": \"0\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.r.dev.grupobc.dev/gbc/ocr/image/pdf2readable/api/gbc/ocr/image/pdf/readable",
+					"protocol": "https",
+					"host": [
+						"api",
+						"r",
+						"dev",
+						"grupobc",
+						"dev"
+					],
+					"path": [
+						"gbc",
+						"ocr",
+						"image",
+						"pdf2readable",
+						"api",
+						"gbc",
+						"ocr",
+						"image",
+						"pdf",
+						"readable"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pdf2Readable::DEV::IBIS::S3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"source\": \"S3\",\n\t\"persistence\": \"S3\",\n    \"bucket\": \"gbc.product.ibi.cosmos\", \n    \"idRequest\": \"cb6000/cata/0050569D16B71ED6AF8ACC40BDD125F1.PDF\",\n\t\"data\": \"cb6000/cata/0050569D16B71ED6AF8ACC40BDD125F1.PDF\", \n\t\"key\": \"cb6000/cata/0050569D16B71ED6AF8ACC40BDD125F1.PDF\",     \n    \"forcescan\": \"1\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.dev-gbc.com/gbc/ocr/image/pdf2readable/api/gbc/ocr/image/pdf/readable",
+					"protocol": "https",
+					"host": [
+						"api",
+						"dev-gbc",
+						"com"
+					],
+					"path": [
+						"gbc",
+						"ocr",
+						"image",
+						"pdf2readable",
+						"api",
+						"gbc",
+						"ocr",
+						"image",
+						"pdf",
+						"readable"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "gbc-s3-file",
+  "version": "1.0.0",
+  "description": "Serverless GBC S3 service exposing a REST HTTP interface",
+  "author": "Oscar Gonzalez",
+  "dependencies": {},
+  "devDependencies": {
+    "serverless-python-requirements": "^5.0.0",
+    "serverless-webpack": "^5.3.1",
+    "serverless-wsgi": "^1.7.3"
+  }
+}

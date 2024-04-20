@@ -1,0 +1,17 @@
+services:
+  ocr-server:
+    build:
+      context: ../
+      dockerfile: Dockerfile_dev
+    ports:
+      - "7003:7003"
+    image: ocr-pdf2readable
+    depends_on:
+      - tika-server
+  tika-server:
+    build:
+      context: ../tika-server/
+      dockerfile: Dockerfile
+    ports:
+      - "9998:9998"
+    image: ocr-tika-server

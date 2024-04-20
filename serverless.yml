@@ -1,0 +1,37 @@
+service: gbc-ocr-image-filter
+
+plugins:
+  - serverless-wsgi
+  - serverless-python-requirements
+custom:
+  wsgi:
+    app: api.app
+    packRequirements: False
+  pythonRequirements:
+    dockerizePip: true
+    zip: true
+
+package:
+  exclude:
+    - node_modules/**
+    - .idea/**
+    - .requirements/**
+    - env/**
+    - README.md
+    - package.json
+    - package-lock.json
+    - requirements.txt
+    - pyvenv/**
+
+provider:
+  name: aws
+  runtime: python3.6
+  region: eu-west-1
+  environment:
+  
+functions:
+  app:
+    handler: wsgi_handler.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
