@@ -541,3 +541,5 @@ fabric.properties
 .idea/**/markdown-navigator/
 
 /config/config.json
+.env
+*.rar
